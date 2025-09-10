@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiVue | Premium Eyewear Collection</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #0e7490 100%);
+        }
+        .nav-link:hover {
+            color: #06b6d4;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .frame-type.active {
+            background-color: #06b6d4;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i data-feather="eye" class="h-6 w-6 text-cyan-600"></i>
+                        <span class="ml-2 text-xl font-semibold text-gray-900">OptiVue</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="products.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Shop</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <div class="flex items-center space-x-4">
+                        <a href="login.html" class="text-gray-700 hover:text-cyan-600">
+                            <i data-feather="user"></i>
+                        </a>
+                        <a href="cart.html" class="text-gray-700 hover:text-cyan-600 relative">
+                            <i data-feather="shopping-cart"></i>
+                            <span class="absolute -top-2 -right-2 bg-cyan-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-gray-500 hover:text-gray-900 focus:outline-none" onclick="toggleMobileMenu()">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Shop</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Contact</a>
+                <div class="pt-4 border-t">
+                    <a href="login.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Login</a>
+                    <a href="cart.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Cart (3)</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">See the World Clearly</h1>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">Premium eyewear designed for comfort, style, and perfect vision.</p>
+                    <a href="products.html" class="bg-white text-cyan-700 hover:bg-gray-100 px-6 py-3 rounded-full font-medium inline-flex items-center">
+                        Shop Now <i data-feather="arrow-right" class="ml-2"></i>
+                    </a>
+                </div>
+                <div data-aos="fade-left" class="flex justify-center">
+                    <img src="http://static.photos/black/640x360/1" alt="Stylish Eyewear" class="rounded-lg shadow-xl max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Shop By Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="products.html?category=prescription" class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition-all">
+                        <div class="bg-cyan-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="glasses" class="text-cyan-600"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">Prescription Glasses</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=sunglasses" class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition-all">
+                        <div class="bg-cyan-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="sun" class="text-cyan-600"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">Sunglasses</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=contact-lenses" class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition-all">
+                        <div class="bg-cyan-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="eye" class="text-cyan-600"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">Contact Lenses</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=accessories" class="category-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition-all">
+                        <div class="bg-cyan-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="box" class="text-cyan-600"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">Accessories</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold" data-aos="fade-up">Featured Products</h2>
+                <a href="products.html" class="text-cyan-600 hover:text-cyan-700 font-medium flex items-center" data-aos="fade-up">
+                    View All <i data-feather="arrow-right" class="ml-2"></i>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="http://static.photos/black/640x360/2" alt="Classic Black Frames" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-cyan-600 text-white text-xs px-2 py-1 rounded-full">NEW</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900 mb-1">Classic Black Frames</h3>
+                        <p class="text-gray-500 text-sm mb-2">Full Rim • Rectangle</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$129.99</span>
+                            <button class="text-cyan-600 hover:text-cyan-700">
+                                <i data-feather="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="http://static.photos/black/640x360/3" alt="Aviator Sunglasses" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900 mb-1">Gold Aviator Sunglasses</h3>
+                        <p class="text-gray-500 text-sm mb-2">UV Protection • Polarized</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$89.99</span>
+                            <button class="text-cyan-600 hover:text-cyan-700">
+                                <i data-feather="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="http://static.photos/black/640x360/4" alt="Round Tortoise Frames" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">SALE</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900 mb-1">Round Tortoise Frames</h3>
+                        <p class="text-gray-500 text-sm mb-2">Full Rim • Round</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="font-bold text-gray-900">$99.99</span>
+                                <span class="text-sm text-gray-500 line-through ml-2">$129.99</span>
+                            </div>
+                            <button class="text-cyan-600 hover:text-cyan-700">
+                                <i data-feather="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative">
+                        <img src="http://static.photos/black/640x360/5" alt="Blue Light Glasses" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium text-gray-900 mb-1">Blue Light Glasses</h3>
+                        <p class="text-gray-500 text-sm mb-2">Blue Light Filter • Rectangle</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$79.99</span>
+                            <button class="text-cyan-600 hover:text-cyan-700">
+                                <i data-feather="shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Try at Home Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-cyan-50 rounded-xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-bold mb-4">Try Before You Buy</h2>
+                    <p class="text-gray-700 mb-6">Not sure which frames suit you best? Try up to 5 frames at home for free with our Home Try-On program.</p>
+                    <button class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-full font-medium inline-flex items-center">
+                        Learn More <i data-feather="arrow-right" class="ml-2"></i>
+                    </button>
+                </div>
+                <div data-aos="fade-left" class="flex justify-center">
+                    <img src="http://static.photos/people/640x360/1" alt="Try at Home" class="rounded-lg shadow-md max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="http://static.photos/people/200x200/1" alt="Sarah J.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Sarah J.</p>
+                            <div class="flex space-x-1 text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The prescription glasses I ordered fit perfectly and the lenses are crystal clear. The home try-on made it so easy to choose!"</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="http://static.photos/people/200x200/2" alt="Michael T.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Michael T.</p>
+                            <div class="flex space-x-1 text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Best sunglasses I've ever owned. The polarized lenses make a huge difference when driving. Will definitely buy again!"</p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="http://static.photos/people/200x200/3" alt="Emma K.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Emma K.</p>
+                            <div class="flex space-x-1 text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The blue light glasses have reduced my eye strain significantly. Love the modern design and comfortable fit for all-day wear."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-cyan-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Stay Updated</h2>
+            <p class="max-w-2xl mx-auto mb-8 opacity-90" data-aos="fade-up" data-aos-delay="100">Subscribe to our newsletter for exclusive offers, new arrivals, and eye care tips.</p>
+            <div class="max-w-md mx-auto flex" data-aos="fade-up" data-aos-delay="200">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-900">
+                <button class="bg-cyan-800 hover:bg-cyan-900 px-6 py-3 rounded-r-lg font-medium">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">OptiVue</h3>
+                    <p class="text-gray-400 mb-4">Premium eyewear for every vision need and style preference.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Prescription Glasses</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sunglasses</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Lenses</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Help</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i data-feather="map-pin" class="mr-2 w-4 h-4"></i> 123 Vision St, New York
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i> hello@optivue.com
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i data-feather="phone" class="mr-2 w-4 h-4"></i> (123) 456-7890
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 OptiVue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Feather icons replacement
+        feather.replace();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Simple cart counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.product-card button');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const cartCount = document.querySelector('.cart-count');
+                    let count = parseInt(cartCount.textContent);
+                    cartCount.textContent = count + 1;
+                    
+                    // Animation for feedback
+                    button.innerHTML = '<i data-feather="check" class="text-green-500"></i>';
+                    feather.replace();
+                    setTimeout(() => {
+                        button.innerHTML = '<i data-feather="shopping-cart"></i>';
+                        feather.replace();
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
