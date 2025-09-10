@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | OptiVue</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i data-feather="eye" class="h-6 w-6 text-cyan-600"></i>
+                        <span class="ml-2 text-xl font-semibold text-gray-900">OptiVue</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="products.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Shop</a>
+                    <a href="about.html" class="nav-link text-cyan-600 font-bold px-3 py-2 text-sm">About</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-gray-500 hover:text-gray-900 focus:outline-none" onclick="toggleMobileMenu()">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Home</a>
+                <a href="products.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Shop</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-cyan-600 font-bold">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="max-w-4xl mx-auto px-4 py-16 bg-white rounded-lg shadow-md mt-8">
+        <h1 class="text-4xl font-bold mb-6 text-cyan-700">About OptiVue</h1>
+        <p class="text-lg text-gray-700 mb-4">
+            Welcome to OptiVue, your destination for premium eyewear. We blend style, comfort, and technology to help you see and look your best.
+        </p>
+        <p class="text-gray-600 mb-4">
+            Since 2023, OptiVue has offered a curated selection of prescription glasses, sunglasses, contact lenses, and accessories. Our commitment is to quality, affordability, and customer satisfaction.
+        </p>
+        <p class="text-gray-600 mb-4">
+            Try our frames at home, enjoy fast shipping, and rely on our expert support for a seamless shopping experience.
+        </p>
+        <div class="mt-8">
+            <h2 class="text-2xl font-semibold mb-2 text-cyan-700">Why Choose OptiVue?</h2>
+            <ul class="list-disc ml-6 text-gray-700">
+                <li>Latest styles and trends</li>
+                <li>Advanced lens options</li>
+                <li>Home Try-On program</li>
+                <li>Easy returns & exchanges</li>
+                <li>Friendly customer service</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 OptiVue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+        feather.replace();
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
