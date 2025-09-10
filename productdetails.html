@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classic Black Frames | OptiVue</title>
+    <title>Product Details | OptiVue</title>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -12,46 +12,26 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .thumbnail:hover {
-            border-color: #06b6d4;
-        }
-        .thumbnail.active {
-            border-color: #06b6d4;
-        }
-        .tab-button.active {
-            color: #06b6d4;
-            border-bottom: 2px solid #06b6d4;
-        }
+        body { font-family: 'Poppins', sans-serif; }
+        .thumbnail:hover { border-color: #06b6d4; }
+        .thumbnail.active { border-color: #06b6d4; }
+        .tab-button.active { color: #06b6d4; border-bottom: 2px solid #06b6d4; }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="index.html" class="flex items-center">
-                        <i data-feather="eye" class="h-6 w-6 text-cyan-600"></i>
-                        <span class="ml-2 text-xl font-semibold text-gray-900">OptiVue</span>
-                    </a>
-                </div>
+            <div class="flex justify-between h-16 items-center">
+                <a href="index.html" class="flex items-center">
+                    <i data-feather="eye" class="h-6 w-6 text-cyan-600"></i>
+                    <span class="ml-2 text-xl font-semibold text-gray-900">OptiVue</span>
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="products.html" class="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Shop</a>
-                    <a href="about.html" class="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">About</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Contact</a>
-                    <div class="flex items-center space-x-4">
-                        <a href="login.html" class="text-gray-700 hover:text-cyan-600">
-                            <i data-feather="user"></i>
-                        </a>
-                        <a href="cart.html" class="text-gray-700 hover:text-cyan-600 relative">
-                            <i data-feather="shopping-cart"></i>
-                            <span class="absolute -top-2 -right-2 bg-cyan-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
-                        </a>
-                    </div>
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="products.html" class="nav-link text-cyan-600 font-bold px-3 py-2 text-sm">Shop</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Contact</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button type="button" class="text-gray-500 hover:text-gray-900 focus:outline-none" onclick="toggleMobileMenu()">
@@ -60,270 +40,70 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Home</a>
-                <a href="products.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Shop</a>
+                <a href="products.html" class="block px-3 py-2 text-base font-medium text-cyan-600 font-bold">Shop</a>
                 <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">About</a>
                 <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Contact</a>
-                <div class="pt-4 border-t">
-                    <a href="login.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Login</a>
-                    <a href="cart.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-cyan-600">Cart (3)</a>
-                </div>
             </div>
         </div>
     </nav>
 
     <!-- Product Detail -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Product Images -->
-            <div>
-                <div class="mb-4 rounded-lg overflow-hidden bg-white p-4 shadow-sm">
-                    <img id="main-image" src="http://static.photos/black/640x360/12" alt="Classic Black Frames" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="grid grid-cols-4 gap-3">
-                    <div class="thumbnail cursor-pointer border-2 rounded-lg overflow-hidden active" onclick="changeImage('http://static.photos/black/640x360/12')">
-                        <img src="http://static.photos/black/640x360/12" alt="Classic Black Frames Front View" class="w-full h-20 object-cover">
-                    </div>
-                    <div class="thumbnail cursor-pointer border-2 rounded-lg overflow-hidden" onclick="changeImage('http://static.photos/black/640x360/13')">
-                        <img src="http://static.photos/black/640x360/13" alt="Classic Black Frames Side View" class="w-full h-20 object-cover">
-                    </div>
-                    <div class="thumbnail cursor-pointer border-2 rounded-lg overflow-hidden" onclick="changeImage('http://static.photos/black/640x360/14')">
-                        <img src="http://static.photos/black/640x360/14" alt="Classic Black Frames Top View" class="w-full h-20 object-cover">
-                    </div>
-                    <div class="thumbnail cursor-pointer border-2 rounded-lg overflow-hidden" onclick="changeImage('http://static.photos/black/640x360/15')">
-                        <img src="http://static.photos/black/640x360/15" alt="Classic Black Frames Model View" class="w-full h-20 object-cover">
-                    </div>
-                </div>
-            </div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="product-detail">
+        <!-- Product details will be rendered here -->
+    </div>
 
-            <!-- Product Info -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-                <div class="mb-4">
-                    <span class="bg-cyan-600 text-white text-xs px-2 py-1 rounded-full">NEW</span>
-                </div>
-                <h1 class="text-2xl font-bold mb-2">Classic Black Frames</h1>
-                <div class="flex items-center mb-4">
-                    <div class="flex space-x-1 text-yellow-400 mr-2">
-                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <span class="text-sm text-gray-600">(24 reviews)</span>
-                </div>
-                <div class="mb-6">
-                    <span class="text-3xl font-bold text-gray-900">$129.99</span>
-                </div>
-
-                <!-- Frame Type Selection -->
-                <div class="mb-6">
-                    <h3 class="font-medium mb-2">Frame Type</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="px-4 py-2 border rounded-full text-sm font-medium bg-cyan-600 text-white">
-                            Full Rim
-                        </button>
-                        <button class="px-4 py-2 border rounded-full text-sm font-medium hover:bg-gray-100">
-                            Half Rim
-                        </button>
-                        <button class="px-4 py-2 border rounded-full text-sm font-medium hover:bg-gray-100">
-                            Rimless
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Frame Color Selection -->
-                <div class="mb-6">
-                    <h3 class="font-medium mb-2">Frame Color</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="w-10 h-10 rounded-full bg-black border-2 border-cyan-600"></button>
-                        <button class="w-10 h-10 rounded-full bg-gray-400 border-2 border-transparent hover:border-gray-300"></button>
-                        <button class="w-10 h-10 rounded-full bg-amber-800 border-2 border-transparent hover:border-gray-300"></button>
-                        <button class="w-10 h-10 rounded-full bg-blue-900 border-2 border-transparent hover:border-gray-300"></button>
-                    </div>
-                </div>
-
-                <!-- Lens Type Selection -->
-                <div class="mb-6">
-                    <h3 class="font-medium mb-2">Lens Type</h3>
-                    <select class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500">
-                        <option>Single Vision</option>
-                        <option>Progressive</option>
-                        <option>Blue Light Filter</option>
-                        <option>Polarized</option>
-                    </select>
-                </div>
-
-                <!-- Prescription Options -->
-                <div class="mb-6">
-                    <h3 class="font-medium mb-2">Prescription</h3>
-                    <div class="space-y-3">
-                        <div>
-                            <label class="flex items-center">
-                                <input type="radio" name="prescription" class="h-4 w-4 text-cyan-600 focus:ring-cyan-500" checked>
-                                <span class="ml-2 text-gray-700">I have a prescription</span>
-                            </label>
-                        </div>
-                        <div>
-                            <label class="flex items-center">
-                                <input type="radio" name="prescription" class="h-4 w-4 text-cyan-600 focus:ring-cyan-500">
-                                <span class="ml-2 text-gray-700">I don't have a prescription</span>
-                            </label>
-                        </div>
-                        <div>
-                            <label class="flex items-center">
-                                <input type="radio" name="prescription" class="h-4 w-4 text-cyan-600 focus:ring-cyan-500">
-                                <span class="ml-2 text-gray-700">I'll upload later</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add to Cart -->
-                <div class="flex flex-col sm:flex-row gap-3 mb-6">
-                    <div class="flex items-center border rounded-lg overflow-hidden">
-                        <button class="px-3 py-2 bg-gray-100 hover:bg-gray-200" onclick="decreaseQuantity()">-</button>
-                        <span id="quantity" class="px-4 py-2">1</span>
-                        <button class="px-3 py-2 bg-gray-100 hover:bg-gray-200" onclick="increaseQuantity()">+</button>
-                    </div>
-                    <button class="flex-1 bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center">
-                        <i data-feather="shopping-cart" class="mr-2"></i> Add to Cart
-                    </button>
-                </div>
-
-                <!-- Delivery Info -->
-                <div class="border-t pt-4">
-                    <div class="flex items-center text-sm text-gray-600 mb-2">
-                        <i data-feather="truck" class="mr-2 text-cyan-600"></i>
-                        <span>Free shipping on orders over $50</span>
-                    </div>
-                    <div class="flex items-center text-sm text-gray-600">
-                        <i data-feather="clock" class="mr-2 text-cyan-600"></i>
-                        <span>Delivery in 3-5 business days</span>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 OptiVue. All rights reserved.</p>
             </div>
         </div>
+    </footer>
+    <script>
+        AOS.init({ once: true });
+        feather.replace();
 
-        <!-- Product Tabs -->
-        <div class="mt-12 bg-white rounded-lg shadow-sm overflow-hidden">
-            <div class="border-b">
-                <nav class="flex -mb-px">
-                    <button class="tab-button active py-4 px-6 text-sm font-medium" onclick="openTab('description')">
-                        Description
-                    </button>
-                    <button class="tab-button py-4 px-6 text-sm font-medium" onclick="openTab('specs')">
-                        Specifications
-                    </button>
-                    <button class="tab-button py-4 px-6 text-sm font-medium" onclick="openTab('reviews')">
-                        Reviews
-                    </button>
-                </nav>
-            </div>
-            <div class="p-6">
-                <!-- Description Tab -->
-                <div id="description" class="tab-content">
-                    <h3 class="font-medium text-lg mb-4">Product Description</h3>
-                    <p class="text-gray-600 mb-4">Our Classic Black Frames combine timeless style with modern comfort. These full-rim acetate frames feature a rectangular shape that complements most face shapes, making them a versatile addition to your eyewear collection.</p>
-                    <p class="text-gray-600 mb-4">The lightweight yet durable material ensures all-day comfort, while the subtle matte finish adds a touch of sophistication. Perfect for both professional settings and casual wear.</p>
-                    <ul class="list-disc pl-5 text-gray-600 space-y-2">
-                        <li>Premium acetate frame material</li>
-                        <li>Rectangular shape with full-rim design</li>
-                        <li>Matte black finish</li>
-                        <li>Spring hinges for added comfort</li>
-                        <li>Includes microfiber cleaning cloth and hard case</li>
-                    </ul>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Get product index from query string
+        function getProductIndex() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id'), 10);
+        }
+
+        function getProducts() {
+            return JSON.parse(localStorage.getItem('products') || '[]');
+        }
+
+        function renderProductDetail() {
+            const idx = getProductIndex();
+            const products = getProducts();
+            const container = document.getElementById('product-detail');
+            if (isNaN(idx) || !products[idx]) {
+                container.innerHTML = `<div class="text-center text-gray-500 py-16">Product not found.</div>`;
+                return;
+            }
+            const product = products[idx];
+            container.innerHTML = `
+                <div class="bg-white rounded-lg shadow-md p-8 flex flex-col items-center">
+                    <img src="${product.image}" alt="${product.name}" class="h-48 w-48 object-cover rounded mb-6">
+                    <h1 class="text-3xl font-bold mb-2 text-cyan-700">${product.name}</h1>
+                    <div class="text-cyan-700 font-bold text-2xl mb-4">₹${product.price}</div>
+                    <p class="text-gray-700 mb-6">Premium eyewear with advanced lens technology and stylish design. Perfect for everyday use.</p>
+                    <button class="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 rounded-full font-medium">Add to Cart</button>
                 </div>
+            `;
+            feather.replace();
+        }
 
-                <!-- Specifications Tab -->
-                <div id="specs" class="tab-content hidden">
-                    <h3 class="font-medium text-lg mb-4">Technical Specifications</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-medium mb-2">Frame Details</h4>
-                            <table class="w-full text-sm text-gray-600">
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Frame Material</td>
-                                    <td class="py-2 text-right">Acetate</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Frame Type</td>
-                                    <td class="py-2 text-right">Full Rim</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Frame Shape</td>
-                                    <td class="py-2 text-right">Rectangle</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Frame Width</td>
-                                    <td class="py-2 text-right">140mm</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Lens Height</td>
-                                    <td class="py-2 text-right">42mm</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div>
-                            <h4 class="font-medium mb-2">Lens Options</h4>
-                            <table class="w-full text-sm text-gray-600">
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Standard Lens</td>
-                                    <td class="py-2 text-right">1.50 Index</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Thin Lens</td>
-                                    <td class="py-2 text-right">1.60 Index</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Ultra Thin Lens</td>
-                                    <td class="py-2 text-right">1.67 Index</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">Blue Light Filter</td>
-                                    <td class="py-2 text-right">Available</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 font-medium">UV Protection</td>
-                                    <td class="py-2 text-right">100%</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reviews Tab -->
-                <div id="reviews" class="tab-content hidden">
-                    <h3 class="font-medium text-lg mb-6">Customer Reviews</h3>
-                    <div class="mb-8">
-                        <div class="flex items-center mb-4">
-                            <div class="flex space-x-1 text-yellow-400 mr-3">
-                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
-                            </div>
-                            <span class="text-sm text-gray-600">Based on 24 reviews</span>
-                        </div>
-                        <button class="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                            Write a Review
-                        </button>
-                    </div>
-
-                    <!-- Review List -->
-                    <div class="space-y-6">
-                        <!-- Review 1 -->
-                        <div class="border-b pb-6">
-                            <div class="flex items-center mb-3">
-                                <div class="flex space-x-1 text-yellow-400 mr-3">
-                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-feather="
+        document.addEventListener('DOMContentLoaded', renderProductDetail);
+    </script>
 </body>
 </html>
