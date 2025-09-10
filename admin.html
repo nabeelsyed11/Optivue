@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | OptiVue</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .input { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 0.75rem; width: 100%; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 mb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+            <a href="index.html" class="flex items-center">
+                <i data-feather="eye" class="h-6 w-6 text-cyan-600"></i>
+                <span class="ml-2 text-xl font-semibold text-gray-900">OptiVue Admin</span>
+            </a>
+            <a href="logout.html" class="text-gray-700 hover:text-cyan-600 px-3 py-2 text-sm font-medium">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Admin Login (simple, for demo only) -->
+    <div id="login-panel" class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8 mt-16">
+        <h2 class="text-2xl font-bold mb-6 text-cyan-700">Admin Login</h2>
+        <form id="admin-login-form" class="space-y-4">
+            <div>
+                <label for="admin-username" class="block text-gray-700 mb-2">Username</label>
+                <input type="text" id="admin-username" class="input" required>
+            </div>
+            <div>
+                <label for="admin-password" class="block text-gray-700 mb-2">Password</label>
+                <input type="password" id="admin-password" class="input" required>
+            </div>
+            <button type="submit" class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-full font-medium w-full">Login</button>
+        </form>
+        <p id="login-error" class="text-red-500 mt-4 hidden">Invalid credentials.</p>
+    </div>
+
+    <!-- Admin Panel -->
+    <section id="admin-panel" class="max-w-4xl mx-auto px-4 py-16 bg-white rounded-lg shadow-md mt-8 hidden">
+        <h1 class="text-3xl font-bold mb-8 text-cyan-700">Manage Products</h1>
+        <!-- Add Product Form -->
+        <form id="add-product-form" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div>
+                <label class="block text-gray-700 mb-2" for="product-name">Product Name</label>
+                <input type="text" id="product-name" class="input" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2" for="product-price">Price (₹)</label>
+                <input type="number" id="product-price" class="input" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 mb-2" for="product-image">Image URL</label>
+                <input type="url" id="product-image" class="input" required>
+            </div>
+            <div class="flex items-end">
+                <button type="submit" class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-full font-medium w-full">Add Product</button>
+            </div>
+        </form>
+        <!-- Product List -->
+        <div>
+            <h2 class="text-xl font-semibold mb-4 text-cyan-700">Product List</h2>
+            <div id="product-list">
+                <!-- Products will be listed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 OptiVue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+        feather.replace();
+
+        // Simple admin login (demo only, not secure for production)
+        const loginPanel = document.getElementById('login-panel');
+        const adminPanel = document.getElementById('admin-panel');
+        const loginForm = document.getElementById('admin-login-form');
+        const loginError = document.getElementById('login-error');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+            // Demo credentials: admin / admin123
+            if (username === 'admin' && password === 'admin123') {
+                loginPanel.style.display = 'none';
+                adminPanel.style.display = 'block';
+            } else {
+                loginError.style.display = 'block';
+            }
+        });
+
+        // Product management (localStorage for demo)
+        const productList = document.getElementById('product-list');
+        const addProductForm = document.getElementById('add-product-form');
+
+        function getProducts() {
+            return JSON.parse(localStorage.getItem('products') || '[]');
+        }
+
+        function saveProducts(products) {
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+
+        function renderProducts() {
+            const products = getProducts();
+            productList.innerHTML = '';
+            if (products.length === 0) {
+                productList.innerHTML = '<p class="text-gray-500">No products added yet.</p>';
+                return;
+            }
+            products.forEach((product, idx) => {
+                const div = document.createElement('div');
+                div.className = "flex items-center justify-between border-b py-4";
+                div.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${product.image}" alt="${product.name}" class="h-16 w-16 rounded mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">${product.name}</p>
+                            <p class="text-gray-500 text-sm">₹${product.price}</p>
+                        </div>
+                    </div>
+                    <button class="text-red-500 hover:text-red-700" onclick="removeProduct(${idx})">
+    <i data-feather="trash-2"></i>
+</button>
+                `;
+                productList.appendChild(div);
+            });
+            feather.replace();
+        }
+
+        addProductForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('product-name').value;
+            const price = document.getElementById('product-price').value;
+            const image = document.getElementById('product-image').value;
+            const products = getProducts();
+            products.push({ name, price, image });
+            saveProducts(products);
+            renderProducts();
+            addProductForm.reset();
+        });
+
+        window.removeProduct = function(idx) {
+            const products = getProducts();
+            products.splice(idx, 1);
+            saveProducts(products);
+            renderProducts();
+        };
+
+        // Render products on admin panel show
+        if (adminPanel.style.display === 'block') {
+            renderProducts();
+        }
+        // Render products after login
+        adminPanel.addEventListener('transitionend', renderProducts);
+    </script>
+</body>
+</html>
